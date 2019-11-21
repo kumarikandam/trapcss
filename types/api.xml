@@ -1,0 +1,8 @@
+<types namespace="_dropcss">
+  <method name="dropcss" return="{ css: string, sels: Set }">
+    <arg name="opts" type="_dropcss.Config">
+      The options for _DropCSS_.
+    </arg>
+    The shouldDrop hook is called for every CSS selector that could not be matched in the html. Return false to retain the selector or true to drop it.
+  </method>
+</types>

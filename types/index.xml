@@ -1,10 +1,13 @@
-<types namespace="_@lemuria/dropcss">
+<types namespace="_dropcss">
   <type name="Config" desc="Options for the program.">
-    <prop boolean name="shouldRun" default="true">
-      A boolean option.
+    <prop string name="html">
+      The input HTML.
     </prop>
-    <prop string name="text">
-      A text to return.
+    <prop string name="css">
+      The CSS to drop selectors from.
+    </prop>
+    <prop boolean name="shouldDrop" default="false">
+      Whether _DropCSS_ should remove selectors.
     </prop>
   </type>
 </types>

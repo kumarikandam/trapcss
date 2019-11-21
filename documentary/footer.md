@@ -4,6 +4,8 @@
 
 ## Copyright
 
+Original work by @leeoniya in [DropCSS](https://github.com/leeoniya/dropcss) (MIT).
+
 (c) [Art Deco™][1] 2019
 
 [1]: www.artd.eco
