@@ -2,10 +2,11 @@ export {}
 
 /* typal types/index.xml closure noSuppress */
 /**
- * @typedef {_@lemuria/dropcss.Config} Config Options for the program.
+ * @typedef {_dropcss.Config} Config Options for the program.
  */
 /**
- * @typedef {Object} _@lemuria/dropcss.Config Options for the program.
- * @prop {boolean} [shouldRun=true] A boolean option. Default `true`.
- * @prop {string} text A text to return.
+ * @typedef {Object} _dropcss.Config Options for the program.
+ * @prop {string} html The input HTML.
+ * @prop {string} css The CSS to drop selectors from.
+ * @prop {boolean} [shouldDrop=false] Whether _DropCSS_ should remove selectors. Default `false`.
  */
