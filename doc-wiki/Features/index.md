@@ -1,3 +1,5 @@
+DropCSS supports all CSS selectors.
+
 - Supported selectors
 
   | Common                                                                                                                                            | Attribute                                                                                    | Positional                                                                                | Positional (of-type)                                                                                | Other    |

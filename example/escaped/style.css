@@ -1,0 +1,5 @@
+.sticky\?lg\:h-\(screen-16\){}
+.lg\:text-sm{
+  font-size: small;
+}
+.lg\:focus\:text-green-700:focus{}

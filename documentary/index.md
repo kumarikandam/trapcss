@@ -17,6 +17,8 @@ It's also a good idea to run your CSS through a structural optimizer like [clean
 
 More on this project's backstory & discussions: v0.1.0 alpha: [/r/javascript](https://old.reddit.com/r/javascript/comments/b3mcu8/dropcss_010_a_minimal_and_thorough_unused_css/), [Hacker News](https://news.ycombinator.com/item?id=19469080) and v1.0.0 release: [/r/javascript](https://old.reddit.com/r/javascript/comments/bb7im2/dropcss_v100_an_exceptionally_fast_thorough_and/).
 
+<kbd>📙 [READ WIKI PAGES](../../wiki)</kbd>
+
 ## Table Of Contents
 
 %TOC%
