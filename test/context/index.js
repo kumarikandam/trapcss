@@ -37,7 +37,36 @@ export default class Context {
   readFile(path) {
     return readFileSync(path, 'utf8')
   }
+  static get BIN() {
+    return BIN
+  }
+  /**
+   * Wrap the style in a style tag.
+   */
+  static get wrap() {
+    return wrap
+  }
   // async _destroy() {
   //   LOG('destroy context')
   // }
+}
+
+let BIN
+if (process.env.ALAMODE_ENV == 'test-build') {
+  console.log('Testing build bin')
+  BIN = 'build/bin/dropcss'
+} if (process.env.ALAMODE_ENV == 'test-compile') {
+  console.log('Testing compile bin')
+  BIN = 'compile/bin/dropcss'
+} else {
+  BIN = 'src/bin'
+}
+
+/**
+ * @param {string} stdout
+ */
+const wrap = (stdout) => {
+  return `<style>
+  ${stdout}
+</style>`
 }

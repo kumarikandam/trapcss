@@ -22,8 +22,9 @@ More on this project's backstory & discussions: v0.1.0 alpha: [/r/javascript](ht
 - [Introduction](#introduction)
 - [Table Of Contents](#table-of-contents)
 - [API](#api)
-- [`dropcss(opts: Config): { css: string, sels: Set }`](#dropcssopts-config--css-string-sels-set-)
+- [`dropcss(opts: Config): Return`](#dropcssopts-config-return)
   * [`Config`](#type-config)
+  * [`Return`](#type-return)
 - [CLI](#cli)
 - [Copyright](#copyright)
 
@@ -43,18 +44,25 @@ import dropcss from '@lemuria/dropcss'
   <img src="/.documentary/section-breaks/1.svg?sanitize=true">
 </a></p>
 
-## <code><ins>dropcss</ins>(</code><sub><br/>&nbsp;&nbsp;`opts: Config,`<br/></sub><code>): <i>{ css: string, sels: Set }</i></code>
+## <code><ins>dropcss</ins>(</code><sub><br/>&nbsp;&nbsp;`opts: Config,`<br/></sub><code>): <i>Return</i></code>
 The shouldDrop hook is called for every CSS selector that could not be matched in the html. Return false to retain the selector or true to drop it.
 
  - <kbd><strong>opts*</strong></kbd> <em><code><a href="#type-config" title="Options for the program.">Config</a></code></em>: The options for _DropCSS_.
 
 __<a name="type-config">`Config`</a>__: Options for the program.
 
-|    Name    |       Type       |                Description                 | Default |
-| ---------- | ---------------- | ------------------------------------------ | ------- |
-| __html*__  | <em>string</em>  | The input HTML.                            | -       |
-| __css*__   | <em>string</em>  | The CSS to drop selectors from.            | -       |
-| shouldDrop | <em>boolean</em> | Whether _DropCSS_ should remove selectors. | `false` |
+|    Name    |               Type                |                  Description                   |
+| ---------- | --------------------------------- | ---------------------------------------------- |
+| __html*__  | <em>string</em>                   | The input HTML.                                |
+| __css*__   | <em>string</em>                   | The CSS to drop selectors from.                |
+| shouldDrop | <em>(sel: string) => boolean</em> | Whether _DropCSS_ should remove this selector. |
+
+__<a name="type-return">`Return`</a>__: Return Type.
+
+|   Name    |            Type             |     Description     |
+| --------- | --------------------------- | ------------------- |
+| __css*__  | <em>string</em>             | The dropped CSS.    |
+| __sels*__ | <em>!Set&lt;string&gt;</em> | The used selectors. |
 
 ```js
 /* alanode example/ */

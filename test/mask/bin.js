@@ -1,14 +1,9 @@
 import TempContext from 'temp-context'
+import Context from '../context'
 import makeTestSuite from '@zoroaster/mask'
 
-const wrap = (stdout) => {
-  return `<style>
-  ${stdout}
-</style>`
-}
-
 export const stress = makeTestSuite('test/result/bin/stress', {
-  fork: 'src/bin',
+  fork: Context.BIN,
 })
 
 export default makeTestSuite('test/result/bin/default', {
@@ -24,9 +19,9 @@ export default makeTestSuite('test/result/bin/default', {
       const style = await write('style.css', css)
       return [html, '-c', style]
     },
-    module: 'src/bin',
+    module: Context.BIN,
     preprocess: {
-      stdout: wrap,
+      stdout: Context.wrap,
     },
   },
 })
@@ -41,13 +36,13 @@ export const output = makeTestSuite('test/result/bin/output', {
     async getArgs(args, { resolve }) {
       return [...args, '-o', resolve('style-trap.css')]
     },
-    module: 'src/bin',
+    module: Context.BIN,
   },
   /**
    * @param {TempContext} t
    */
   async getResults({ read }) {
     const s = await read('style-trap.css')
-    return wrap(s)
+    return Context.wrap(s)
   },
 })

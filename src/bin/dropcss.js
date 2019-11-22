@@ -20,13 +20,13 @@ if (!_css) {
   console.error('Please pass CSS path')
   process.exit(1)
 }
-const css = readFileSync(_css, 'utf8')
+const css = /** @type {string} */ (readFileSync(_css, 'utf8'))
 
 // whitelist
 let whitelist = new Set()
 
 _input.forEach((input) => {
-  const html = readFileSync(input, 'utf8')
+  const html = /** @type {string} */ (readFileSync(input, 'utf8'))
   const { sels } = dropcss({
     css,
     html,

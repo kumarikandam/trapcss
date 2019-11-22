@@ -23,11 +23,10 @@ const drop = () => true
 /**
  * [fork] An exceptionally fast, thorough and tiny unused-CSS cleaner.
  * @param {_dropcss.Config} opts Options for the program.
- * @param {string} opts.html The input HTML.
- * @param {string} opts.css The CSS to drop selectors from.
- * @param {boolean} [opts.shouldDrop=false] Whether _DropCSS_ should remove selectors. Default `false`.
+ * @return {_dropcss.Return}
  */
 export default function dropcss(opts) {
+  const { html, shouldDrop = drop, css } = opts
   let log, START
 
   if (LOGGING) {
@@ -36,18 +35,16 @@ export default function dropcss(opts) {
   }
 
   // {nodes, tag, class, id}
-  const H = parseHTML(opts.html)
+  const H = parseHTML(html)
 
   LOGGING && log.push([+new Date() - START, 'HTML parsed & processed'])
 
-  const shouldDrop = opts.shouldDrop || drop
-
-  let tokens = parseCSS(opts.css)
+  const tokens = parseCSS(css)
 
   LOGGING && log.push([+new Date() - START, 'CSS tokenized'])
 
   // cache
-  let tested = {}
+  const tested = {}
 
   // null out tokens that have any unmatched sub-selectors in flat dom
   for (let i = 0; i < tokens.length; i++) {
@@ -159,16 +156,12 @@ export default function dropcss(opts) {
   }
 }
 
-
-/* typal types/index.xml */
 /**
  * @suppress {nonStandardJsDocs}
- * @typedef {_dropcss.Config} Config Options for the program.
+ * @typedef {import('../compile').Config} _dropcss.Config
  */
+
 /**
  * @suppress {nonStandardJsDocs}
- * @typedef {Object} _dropcss.Config Options for the program.
- * @prop {string} html The input HTML.
- * @prop {string} css The CSS to drop selectors from.
- * @prop {boolean} [shouldDrop=false] Whether _DropCSS_ should remove selectors. Default `false`.
+ * @typedef {import('../compile').Return} _dropcss.Return
  */

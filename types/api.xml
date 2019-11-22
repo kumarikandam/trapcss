@@ -1,5 +1,5 @@
 <types namespace="_dropcss">
-  <method name="dropcss" return="{ css: string, sels: Set }">
+  <method name="dropcss" return="_dropcss.Return">
     <arg name="opts" type="_dropcss.Config">
       The options for _DropCSS_.
     </arg>

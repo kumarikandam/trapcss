@@ -1,13 +1,23 @@
 <types namespace="_dropcss">
-  <type name="Config" desc="Options for the program.">
+  <type record name="Config" desc="Options for the program.">
     <prop string name="html">
       The input HTML.
     </prop>
     <prop string name="css">
       The CSS to drop selectors from.
     </prop>
-    <prop boolean name="shouldDrop" default="false">
-      Whether _DropCSS_ should remove selectors.
+    <fn name="shouldDrop" opt return="boolean">
+      <arg string name="sel">The selector to check.</arg>
+      Whether _DropCSS_ should remove this selector.
+    </fn>
+  </type>
+
+  <type record name="Return" desc="Return Type.">
+    <prop string name="css">
+      The dropped CSS.
+    </prop>
+    <prop type="!Set<string>" name="sels">
+      The used selectors.
     </prop>
   </type>
 </types>

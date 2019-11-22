@@ -147,7 +147,7 @@ export function postProc(out, shouldDrop, log, START) {
 
   LOGGING && log.push([+new Date() - START, 'Drop unused @font-face'])
 
-  out = dropCssVars(out, shouldDrop)
+  out = dropCssVars(out)
 
   LOGGING && log.push([+new Date() - START, 'Drop unused --* props'])
 

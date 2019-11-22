@@ -1,12 +1,17 @@
 {
   "env": {
-    "test-build": {
+    "test-compile": {
       "import": {
         "replacement": {
-          "from": "^((../)+)src",
-          "to": "$1build"
+          "from": "^((../)+)src$",
+          "to": "$1compile"
         }
       }
     }
+  },
+  "import": {
+    "alamodeModules": [
+      "usually"
+    ]
   }
 }

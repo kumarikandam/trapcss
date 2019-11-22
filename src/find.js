@@ -1,4 +1,4 @@
-import { nth as isNth } from './nth'
+import isNth from './nth'
 import { getSibsOfType } from './html'
 import { parse as parseSel, parseNth } from './sel'
 
