@@ -1,0 +1,35 @@
+div{color: red;}
+@font-face{font-family: 'Open Sans';}
+span{color: black;}
+
+// retains if used
+div{font-family: 'Open Sans', Fallback, sans-serif;}
+
+/* expected */
+div{color: red;}@font-face{font-family: 'Open Sans';}
+/**/
+
+// retains if used (shorthand)
+div{font: italic small-caps normal 13px Arial, 'Open Sans', Helvetica, sans-serif;}
+
+/* expected */
+div{color: red;}@font-face{font-family: 'Open Sans';}
+/**/
+
+// drop if unused
+
+/* expected */
+div{color: red;}
+/**/
+
+// drops if unused (multiple defs)
+@font-face {
+  font-family: MuseoSans;
+}
+@font-face {
+  font-family:MuseoSans;
+}
+
+/* expected */
+div{color: red;}
+/**/

@@ -1,0 +1,35 @@
+div{color: red;}
+@keyframes pulse{0%{width:300%;}100%{width:100%;}}
+@-webkit-keyframes pulse{0%{width:300%;}100%{width:100%;}}
+@keyframes nudge{0%{width:300%;}100%{width:100%;}}
+@-webkit-keyframes nudge{0%{width:300%;}100%{width:100%;}}
+@keyframes bop{0%{width:300%;}100%{width:100%;}}
+@-webkit-keyframes bop{0%{width:300%;}100%{width: 100%;}}
+span{color: black;}
+
+// drops all
+
+/* expected */
+div{color: red;}
+/**/
+
+// drops pulse, nudge
+div{animation-name: bop;}
+
+/* expected */
+div{color: red;}@keyframes bop{0%{width:300%;}100%{width:100%;}}@-webkit-keyframes bop{0%{width:300%;}100%{width: 100%;}}
+/**/
+
+// drops bop
+div{animation: pulse 3s ease infinite alternate, nudge 5s linear infinite alternate;}
+
+/* expected */
+div{color: red;}@keyframes pulse{0%{width:300%;}100%{width:100%;}}@-webkit-keyframes pulse{0%{width:300%;}100%{width:100%;}}@keyframes nudge{0%{width:300%;}100%{width:100%;}}@-webkit-keyframes nudge{0%{width:300%;}100%{width:100%;}}
+/**/
+
+// retains nudge
+div{animation: foo 3s ease infinite alternate, nudge 5s linear infinite alternate;}
+
+/* expected */
+div{color: red;}@keyframes nudge{0%{width:300%;}100%{width:100%;}}@-webkit-keyframes nudge{0%{width:300%;}100%{width:100%;}}
+/**/

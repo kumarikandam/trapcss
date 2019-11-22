@@ -1,0 +1,40 @@
+div{color: red;}:root {--font-family: Foo, 'Bar Baz';}
+@font-face {font-family: Foo}
+
+// drops if unused --font-family: should not be confused with font use
+div{font-family: 'Open Sans', Fallback, sans-serif;}
+
+/* expected */
+div{color: red;}
+/**/
+
+// retains if used in font-family
+div{font-family: var(--font-family);}
+
+/* expected */
+div{color: red;}:root{--font-family: Foo, 'Bar Baz';}@font-face{font-family: Foo}
+/**/
+
+// retains if used - deep resolve
+:root {--font: var(--sty) var(--wgt) 1em/var(--lht) var(--fam1), var(--fam2); --sty: italic; --wgt: bold; --lht: var(--hgt)em; --fam1: 'Open Sans'; --fam2: Arial; --hgt: 1.6;}
+@font-face {font-family: var(--fam1);}
+div {font: var(--font);}
+
+/* prepend */
+false
+/**/
+
+/* expected */
+:root{--font: var(--sty) var(--wgt) 1em/var(--lht) var(--fam1), var(--fam2); --sty: italic; --wgt: bold; --lht: var(--hgt)em; --fam1: 'Open Sans'; --fam2: Arial; --hgt: 1.6;}@font-face{font-family: var(--fam1);}div{font: var(--font);}
+/**/
+
+// drop if unused - deep resolve
+:root {--font: var(--sty) var(--wgt) 1em/var(--lht) var(--fam1), var(--fam2); --sty: italic; --wgt: bold; --lht: var(--hgt)em; --fam1: 'Open Sans'; --fam2: Arial; --hgt: 1.6;}
+@font-face {font-family: var(--fam1);}
+
+/* prepend */
+false
+/**/
+
+/* expected */
+/**/

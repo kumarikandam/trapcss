@@ -8,16 +8,16 @@ const T = {
   'is a function'() {
     equal(typeof dropcss, 'function')
   },
-  async 'calls package without error'() {
-    await dropcss()
-  },
-  async 'gets a link to the fixture'({ fixture }) {
-    const text = fixture`text.txt`
-    const res = await dropcss({
-      text,
-    })
-    ok(res, text)
-  },
+  // async 'calls package without error'() {
+  //   await dropcss()
+  // },
+  // async 'gets a link to the fixture'({ fixture }) {
+  //   const text = fixture`text.txt`
+  //   const res = await dropcss({
+  //     text,
+  //   })
+  //   ok(res, text)
+  // },
 }
 
 export default T

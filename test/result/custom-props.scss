@@ -1,0 +1,9 @@
+// does not confuse BEM -- classes with custom props
+:root{--red: #f00;}.a--b:hover{color: var(--red);}.--c{width: 10px;}
+
+/* html */
+html { content: '<div class="a--b"></div><div class="--c"></div>' }
+/**/
+
+/* expected */
+/**/

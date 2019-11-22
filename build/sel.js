@@ -1,7 +1,7 @@
-import { takeUntilMatchedClosing } from './css'
+const { takeUntilMatchedClosing } = require('./css');
 
 // assumes stripPseudos(sel); has already been called
-export function parse(sel) {
+function parse(sel) {
   const RE = {
     IDENT:	/([\w*-]+)/iy,
     ATTR:	/([\w-]+)(?:(.?=)["']?([^\]]*?)["']?)?\]/iy,
@@ -96,7 +96,7 @@ export function parse(sel) {
 
 const RE_NTH = /^([+-]?\d*)?n([+-]\d+)?$/
 
-export function parseNth(expr) {
+function parseNth(expr) {
   let m = RE_NTH.exec(expr)
 
   if (m != null) {
@@ -120,3 +120,6 @@ export function parseNth(expr) {
 
   return [0, 0]
 }
+
+module.exports.parse = parse
+module.exports.parseNth = parseNth
