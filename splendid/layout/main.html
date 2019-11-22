@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <block-head />
+  <body>
+    <ajax-loader />
+    <div class="table">
+      <div class="left-column">
+        <div class="logo">
+          <img src="img/logo.jpg" alt="splendid logo">
+        </div>
+        <div class="badges">
+          <github-badge name="splendid" org="artdecocode" />
+          <npm-badge package="splendid">_Splendid_</npm-badge>
+        </div>
+
+        ### Pages
+
+        <Pages />
+
+        ### npm links
+
+        <ul>
+          * [splendid](https://www.npmjs.com/package/splendid)
+          * [mnp](https://www.npmjs.com/package/mnp)
+        </ul>
+
+        <social-buttons />
+      </div>
+      <div class="right-column" id="Content">
+        {{ content }}
+      </div>
+    </div>
+    <block-footer />
+  </body>
+</html>
