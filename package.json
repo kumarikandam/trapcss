@@ -1,7 +1,7 @@
 {
   "name": "trapcss",
   "version": "0.0.0-pre",
-  "description": "[fork] An exceptionally fast, thorough and tiny unused-CSS cleaner.",
+  "description": "Removes unused selectors from CSS files to achieve maximum optimisation. Can be used as an API function or with CLI.",
   "main": "compile/index.js",
   "module": "src/index.js",
   "scripts": {
@@ -37,7 +37,13 @@
   },
   "keywords": [
     "trapcss",
-    "lemuria"
+    "lemuria",
+    "css",
+    "remove",
+    "clean",
+    "optimise",
+    "stylesheet",
+    "lighthouse"
   ],
   "author": "Anton <anton@adc.sh>",
   "license": "MIT",
