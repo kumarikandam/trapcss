@@ -1,7 +1,7 @@
 import usually from 'usually'
 import { reduceUsage } from 'argufy'
 import { readFileSync, writeFileSync } from 'fs'
-import dropcss from '../'
+import trapcss from '../'
 import { _input, _output, argsConfig, _css, _version, _help } from './args'
 
 /**
@@ -47,14 +47,14 @@ let whitelist = new Set()
 
 _input.forEach((input) => {
   const html = /** @type {string} */ (readFileSync(input, 'utf8'))
-  const { sels } = dropcss({
+  const { sels } = trapcss({
     css,
     html,
   })
   sels.forEach(sel => whitelist.add(sel))
 })
 
-const cleaned = dropcss({
+const cleaned = trapcss({
   html: '',
   css,
   shouldDrop: sel => !whitelist.has(sel),

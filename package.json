@@ -1,5 +1,5 @@
 {
-  "name": "@lemuria/dropcss",
+  "name": "trapcss",
   "version": "0.0.0-pre",
   "description": "[fork] An exceptionally fast, thorough and tiny unused-CSS cleaner.",
   "main": "compile/index.js",
@@ -10,12 +10,12 @@
     "spec": "yarn t test/spec",
     "mask": "yarn t test/mask",
     "dev": "src/bin/index.js",
-    "wiki": "NODE_DEBUG=doc doc doc-wiki -W wiki -n _dropcss",
-    "compile": "depack src/bin/dropcss -c -a -o compile/bin --externs types/externs.js",
-    "lib": "depack src/depack -c -a -o compile/dropcss.js",
+    "wiki": "NODE_DEBUG=doc doc doc-wiki -W wiki -n _trapcss",
+    "compile": "depack src/bin/trapcss -c -a -o compile/bin --externs types/externs.js",
+    "lib": "depack src/depack -c -a -o compile/trapcss.js",
     "test-compile": "ALAMODE_ENV=test-compile yarn test",
     "lint": "eslint .",
-    "doc": "NODE_DEBUG=doc doc -o README.md -n _dropcss",
+    "doc": "NODE_DEBUG=doc doc -o README.md -n _trapcss",
     "d": "yarn-s template d2 externs",
     "d2": "typal types/index.js compile/index.js -t types/index.xml -u",
     "template": "typal compile/template.js -T compile/index.js -t types/api.xml",
@@ -24,7 +24,7 @@
     "e": "alanode",
     "args": "argufy types/arguments.xml -o src/bin/args.js"
   },
-  "bin": "compile/bin/dropcss.js",
+  "bin": "compile/bin/trapcss.js",
   "files": [
     "compile",
     "src",
@@ -33,7 +33,7 @@
   "externs": "types/externs.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/kumarikandam/dropcss.git"
+    "url": "git://github.com/kumarikandam/trapcss.git"
   },
   "keywords": [
     "dropcss",
@@ -42,9 +42,9 @@
   "author": "Anton <anton@adc.sh>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kumarikandam/dropcss/issues"
+    "url": "https://github.com/kumarikandam/trapcss/issues"
   },
-  "homepage": "https://github.com/kumarikandam/dropcss#readme",
+  "homepage": "https://github.com/kumarikandam/trapcss#readme",
   "devDependencies": {
     "@idio/idio": "^0.1.0",
     "alamode": "^3.2.0",

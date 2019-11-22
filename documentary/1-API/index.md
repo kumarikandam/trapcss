@@ -3,7 +3,7 @@
 The package is available by importing its default function:
 
 ```js
-import dropcss from '@lemuria/dropcss'
+import trapcss from 'trapcss'
 ```
 
 %~%
@@ -12,7 +12,7 @@ import dropcss from '@lemuria/dropcss'
 
 %TYPEDEF types/index.xml%
 
-%EXAMPLE: example, ../src => @lemuria/dropcss%
+%EXAMPLE: example, ../src => trapcss%
 
 %FORK-css example%
 %FORKERR-js example%

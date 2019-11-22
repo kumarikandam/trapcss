@@ -1,2 +1,2 @@
 - Not tested against or designed to handle malformed HTML or CSS
-- Excessive escaping or reserved characters in your HTML or CSS can break DropCSS's parsers
+- Excessive escaping or reserved characters in your HTML or CSS can break TrapCSS's parsers

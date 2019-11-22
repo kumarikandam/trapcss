@@ -1,4 +1,4 @@
-<types namespace="_dropcss">
+<types namespace="_trapcss">
   <type record name="Config" desc="Options for the program.">
     <prop string name="html">
       The input HTML.
@@ -8,7 +8,8 @@
     </prop>
     <fn name="shouldDrop" opt return="boolean">
       <arg string name="sel">The selector to check.</arg>
-      Whether _DropCSS_ should remove this selector.
+      Whether _TrapCSS_ should remove this selector.
+      The `shouldDrop` hook is called for every CSS selector that could not be matched in the html. Return `false` to retain the selector or `true` to drop it.
     </fn>
   </type>
 

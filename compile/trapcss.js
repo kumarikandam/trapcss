@@ -40,7 +40,7 @@ const fa=/\[([\w-]+)(?:(.?=)"?([^\]]*?)"?)?\]/i,ha=/:(?:first|last|nth|only|not)
  You should have received a copy of the GNU Affero General Public License
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-module.exports={_dropcss:function(a){const {html:b,shouldDrop:c=ja,css:d}=a,e=D(b);a=M(d);const g={};for(var f=0;f<a.length;f++){if(3!==a[f])continue;let l=a[f+1],k=l[l.length-1];f++;for(let m=0;m<k.length;m++){let H=k[m];a:for(let A=0;A<H.length;A++){let n=H[A];var h=!1;if(""!=n){if(n in g)h=g[n];else switch(n[0]){case "#":h=n.substr(1);g[n]=h=e.h.has("[id="+h+"]");break;case ".":h=n.substr(1);g[n]=h=e.B.has(h);break;case "[":if(n.startsWith("[type="))g[n]=h=e.h.has(n);else{let B=n.match(fa);g[n]=
+module.exports={_trapcss:function(a){const {html:b,shouldDrop:c=ja,css:d}=a,e=D(b);a=M(d);const g={};for(var f=0;f<a.length;f++){if(3!==a[f])continue;let l=a[f+1],k=l[l.length-1];f++;for(let m=0;m<k.length;m++){let H=k[m];a:for(let A=0;A<H.length;A++){let n=H[A];var h=!1;if(""!=n){if(n in g)h=g[n];else switch(n[0]){case "#":h=n.substr(1);g[n]=h=e.h.has("[id="+h+"]");break;case ".":h=n.substr(1);g[n]=h=e.B.has(h);break;case "[":if(n.startsWith("[type="))g[n]=h=e.h.has(n);else{let B=n.match(fa);g[n]=
 h=e.i.some(ka=>R(ka,B[1],B[3],B[2]))}break;default:g[n]=h=e.tag.has(n)}if(!h){!0===c(l[m])?l[m]=null:g[l[m]]=!0;break a}}}}}for(f=0;f<a.length;f++)3===a[f]&&(f++,a[f]=a[f].filter(l=>{if("string"==typeof l){if(l in g)return g[l];let k=ia(l);return""==k?!0:k in g?g[k]:g[k]=U(e.i,Array.isArray(k)?k:P(k))||!0!==c(l)}return!1}));f=new Set;a=N(a,f);a=ea(a,c);return{css:a.replace(/@[a-z-]+[^{]+\{\s*\}/gm,""),sels:f}}};
 
-//# sourceMappingURL=dropcss.js.map
+//# sourceMappingURL=trapcss.js.map

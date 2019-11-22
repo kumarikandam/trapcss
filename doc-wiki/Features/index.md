@@ -1,4 +1,4 @@
-DropCSS supports all CSS selectors.
+TrapCSS supports all CSS selectors.
 
 - Supported selectors
 

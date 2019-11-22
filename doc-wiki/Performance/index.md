@@ -1,4 +1,4 @@
-DropCSS is the fastest and the most efficient css cleaner as proved by the benchmark.
+TrapCSS is the fastest and the most efficient css cleaner as proved by the benchmark.
 
 ## Input
 
@@ -27,7 +27,7 @@ DropCSS is the fastest and the most efficient css cleaner as proved by the bench
     </thead>
     <tbody>
         <tr>
-            <th><strong>DropCSS</strong></th>
+            <th><strong>TrapCSS</strong></th>
             <td>
                 58.4 KB<br>
                 6 Files, 2 Folders

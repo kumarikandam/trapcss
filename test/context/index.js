@@ -54,10 +54,10 @@ export default class Context {
 let BIN
 if (process.env.ALAMODE_ENV == 'test-build') {
   console.log('Testing build bin')
-  BIN = 'build/bin/dropcss'
+  BIN = 'build/bin/trapcss'
 } if (process.env.ALAMODE_ENV == 'test-compile') {
   console.log('Testing compile bin')
-  BIN = 'compile/bin/dropcss'
+  BIN = 'compile/bin/trapcss'
 } else {
   BIN = 'src/bin'
 }

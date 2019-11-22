@@ -1,6 +1,6 @@
 import ServiceContext from 'zoroaster'
 import Context from '../context'
-import dropcss from '../../src'
+import trapcss from '../../src'
 
 /** @type {Object.<string, (c: Context, z: ServiceContext)>} */
 const T = {
@@ -10,7 +10,7 @@ const T = {
     const bt = readFile(bootstrap)
     const bulma = readFile(fixture`bulma.min.css`)
     const css = bt + bulma
-    const res = dropcss({
+    const res = trapcss({
       css,
       html: readFile(fixture`surveillance.html`),
     })

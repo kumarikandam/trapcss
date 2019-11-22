@@ -28,10 +28,10 @@ const drop = () => true
 
 /**
  * [fork] An exceptionally fast, thorough and tiny unused-CSS cleaner.
- * @param {_dropcss.Config} opts Options for the program.
- * @return {_dropcss.Return}
+ * @param {_trapcss.Config} opts Options for the program.
+ * @return {_trapcss.Return}
  */
-export default function dropcss(opts) {
+export default function trapcss(opts) {
   const { html, shouldDrop = drop, css } = opts
   let log, START
 
@@ -164,10 +164,10 @@ export default function dropcss(opts) {
 
 /**
  * @suppress {nonStandardJsDocs}
- * @typedef {import('../compile').Config} _dropcss.Config
+ * @typedef {import('../compile').Config} _trapcss.Config
  */
 
 /**
  * @suppress {nonStandardJsDocs}
- * @typedef {import('../compile').Return} _dropcss.Return
+ * @typedef {import('../compile').Return} _trapcss.Return
  */

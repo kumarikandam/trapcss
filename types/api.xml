@@ -1,8 +1,8 @@
-<types namespace="_dropcss">
-  <method name="dropcss" return="_dropcss.Return">
-    <arg name="opts" type="_dropcss.Config">
-      The options for _DropCSS_.
+<types namespace="_trapcss">
+  <method name="trapcss" return="_trapcss.Return">
+    <arg name="opts" type="_trapcss.Config">
+      The options for _TrapCSS_.
     </arg>
-    The shouldDrop hook is called for every CSS selector that could not be matched in the html. Return false to retain the selector or true to drop it.
+    Parses the supplied HTML and CSS and removes unused selectors. Also removes empty CSS rules.
   </method>
 </types>

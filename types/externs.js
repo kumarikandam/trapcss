@@ -5,39 +5,40 @@
 
 /* typal types/index.xml externs */
 /** @const */
-var _dropcss = {}
+var _trapcss = {}
 /**
  * Options for the program.
  * @record
  */
-_dropcss.Config
+_trapcss.Config
 /**
  * The input HTML.
  * @type {string}
  */
-_dropcss.Config.prototype.html
+_trapcss.Config.prototype.html
 /**
  * The CSS to drop selectors from.
  * @type {string}
  */
-_dropcss.Config.prototype.css
+_trapcss.Config.prototype.css
 /**
- * Whether _DropCSS_ should remove this selector.
+ * Whether _TrapCSS_ should remove this selector.
+ * The `shouldDrop` hook is called for every CSS selector that could not be matched in the html. Return `false` to retain the selector or `true` to drop it.
  * @type {(function(string): boolean)|undefined}
  */
-_dropcss.Config.prototype.shouldDrop = function(sel) {}
+_trapcss.Config.prototype.shouldDrop = function(sel) {}
 /**
  * Return Type.
  * @record
  */
-_dropcss.Return
+_trapcss.Return
 /**
  * The dropped CSS.
  * @type {string}
  */
-_dropcss.Return.prototype.css
+_trapcss.Return.prototype.css
 /**
  * The used selectors.
  * @type {!Set<string>}
  */
-_dropcss.Return.prototype.sels
+_trapcss.Return.prototype.sels

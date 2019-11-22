@@ -1,5 +1,5 @@
 import '../types/externs'
-import dropcss from './'
+import trapcss from './'
 
 /**
  * @license
@@ -22,5 +22,5 @@ import dropcss from './'
  */
 
 module.exports = {
-  '_dropcss': dropcss,
+  '_trapcss': trapcss,
 }

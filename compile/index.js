@@ -1,28 +1,30 @@
-const { _dropcss } = require('./dropcss')
+const { _trapcss } = require('./trapcss')
 
 /**
- * The shouldDrop hook is called for every CSS selector that could not be matched in the html. Return false to retain the selector or true to drop it.
- * @param {_dropcss.Config} opts Options for the program.
+ * Parses the supplied HTML and CSS and removes unused selectors. Also removes empty CSS rules.
+ * @param {_trapcss.Config} opts Options for the program.
  * @param {string} opts.html The input HTML.
  * @param {string} opts.css The CSS to drop selectors from.
- * @param {(sel: string) => boolean} [opts.shouldDrop] Whether _DropCSS_ should remove this selector.
- * @return {_dropcss.Return}
+ * @param {(sel: string) => boolean} [opts.shouldDrop] Whether _TrapCSS_ should remove this selector.
+ * The `shouldDrop` hook is called for every CSS selector that could not be matched in the html. Return `false` to retain the selector or `true` to drop it.
+ * @return {_trapcss.Return}
  */
-function dropcss(opts) {
-  return _dropcss(opts)
+function trapcss(opts) {
+  return _trapcss(opts)
 }
 
-module.exports = dropcss
+module.exports = trapcss
 
 /* typal types/index.xml namespace */
 /**
- * @typedef {_dropcss.Config} Config `＠record` Options for the program.
- * @typedef {Object} _dropcss.Config `＠record` Options for the program.
+ * @typedef {_trapcss.Config} Config `＠record` Options for the program.
+ * @typedef {Object} _trapcss.Config `＠record` Options for the program.
  * @prop {string} html The input HTML.
  * @prop {string} css The CSS to drop selectors from.
- * @prop {(sel: string) => boolean} [shouldDrop] Whether _DropCSS_ should remove this selector.
- * @typedef {_dropcss.Return} Return `＠record` Return Type.
- * @typedef {Object} _dropcss.Return `＠record` Return Type.
+ * @prop {(sel: string) => boolean} [shouldDrop] Whether _TrapCSS_ should remove this selector.
+ * The `shouldDrop` hook is called for every CSS selector that could not be matched in the html. Return `false` to retain the selector or `true` to drop it.
+ * @typedef {_trapcss.Return} Return `＠record` Return Type.
+ * @typedef {Object} _trapcss.Return `＠record` Return Type.
  * @prop {string} css The dropped CSS.
  * @prop {!Set<string>} sels The used selectors.
  */

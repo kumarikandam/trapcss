@@ -1,5 +1,5 @@
 import makeTestSuite from '@zoroaster/mask'
-import dropcss from '../../src'
+import trapcss from '../../src'
 
 // todo: test [foo="val"], [foo='val'], :not([attr~=value])
 // *-child assertions dont make to test in a unary selector since all root elements will be first/last/only "children"
@@ -14,7 +14,7 @@ const contextFreeUnarySel = makeTestSuite('test/result/0-context-free-unary-sel'
       css = this.input
     }
     [,html] = /content: '(.+?)'/.exec(html)
-    return dropcss({ html, css })
+    return trapcss({ html, css })
   },
   mapActual({ css }) {
     return css

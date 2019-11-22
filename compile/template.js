@@ -1,12 +1,12 @@
-const { _dropcss } = require('./dropcss')
+const { _trapcss } = require('./trapcss')
 
 /**
- * @methodType {_dropcss.dropcss}
+ * @methodType {_trapcss.trapcss}
  */
-function dropcss(opts) {
-  return _dropcss(opts)
+function trapcss(opts) {
+  return _trapcss(opts)
 }
 
-module.exports = dropcss
+module.exports = trapcss
 
 /* typal types/index.xml namespace */

@@ -53,4 +53,4 @@ return Object.keys(a).reduce(({f:e,...g},f)=>{if(0==e.length&&d)return{f:e,...g}
 */
 if(U.help){const a=q();console.log(a)}else Aa&&console.log(require("../../package.json").version);V||(console.error("Please pass CSS path"),process.exit(1));const X=z(V,"utf8");let Y=new Set;za.forEach(a=>{a=z(a,"utf8");({sels:a}=T({css:X,html:a}));a.forEach(b=>Y.add(b))});const Z=T({html:"",css:X,shouldDrop:a=>!Y.has(a)});W?(A(W,Z.css),console.error("Output written to %s",W)):console.log(Z.css);
 
-//# sourceMappingURL=dropcss.js.map
+//# sourceMappingURL=trapcss.js.map

@@ -1,10 +1,10 @@
 ## CLI
 
-_DropCSS_ can be used from the CLI.
+_TrapCSS_ can be used from the CLI.
 
 <argufy>types/arguments.xml</argufy>
 
-For example, having these two files, we can use `dropcss` from the command line:
+For example, having these two files, we can use `trapcss` from the command line:
 
 <table>
 <tr>
@@ -24,13 +24,13 @@ For example, having these two files, we can use `dropcss` from the command line:
 </table>
 
 ```console
-trapcss:~$ dropcss example/cli/index.html -c example/cli/style.css
+trapcss:~$ trapcss example/cli/index.html -c example/cli/style.css
 ```
 
-%FORK-css src/bin/dropcss example/cli/index.html -c example/cli/style.css%
+%FORK-css src/bin/trapcss example/cli/index.html -c example/cli/style.css%
 
 The help can be accessed with the `-h` command:
 
-%FORK src/bin/dropcss -h%
+%FORK src/bin/trapcss -h%
 
 %~%
