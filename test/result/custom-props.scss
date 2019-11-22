@@ -6,4 +6,5 @@ html { content: '<div class="a--b"></div><div class="--c"></div>' }
 /**/
 
 /* expected */
+:root{--red: #f00;}.a--b:hover{color: var(--red);}.--c{width: 10px;}
 /**/

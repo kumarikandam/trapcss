@@ -42,6 +42,7 @@ const cleaned = dropcss({
 
 if (_output) {
   writeFileSync(_output, cleaned.css)
+  console.error('Output written to %s', _output)
 } else {
   console.log(cleaned.css)
 }
