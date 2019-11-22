@@ -1,0 +1,11 @@
+html {
+  background: yellow;
+  /* @alternate */
+  background: green;
+}
+.card {
+  padding: 8px;
+}
+p:hover a:first-child {
+  color: red;
+}

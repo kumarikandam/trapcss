@@ -157,6 +157,73 @@ _DropCSS_ can be used from the CLI.
   </tr>
 </table>
 
+For example, having these two files, we can use `dropcss` from the command line:
+
+<table>
+<tr>
+  <th>HTML file</th>
+  <th>CSS file</th>
+</tr>
+<tr>
+  <td>
+
+  ```html
+  <html>
+    <head>
+      <title>TrapCSS ftw</title>
+    </head>
+    <body>
+        <p>Hello World!</p>
+    </body>
+  </html>
+  ```
+  </td>
+  <td>
+
+  ```css
+  html {
+    background: yellow;
+    /* @alternate */
+    background: green;
+  }
+  .card {
+    padding: 8px;
+  }
+  p:hover a:first-child {
+    color: red;
+  }
+  ```
+  </td>
+</tr>
+</table>
+
+```console
+trapcss:~$ dropcss example/cli/index.html -c example/cli/style.css
+```
+
+```css
+html{background: yellow;background: green;}
+```
+
+The help can be accessed with the `-h` command:
+
+```
+Remove unused CSS
+
+  dropcss input.html[,n.html,...] -c style.css [-o output] [-hv]
+
+	input        	The HTML files to read.
+	--css, -c    	The CSS file to drop selectors from.
+	--output, -o 	The destination where to save output.
+	             	If not passed, prints to stdout.
+	--help, -h   	Print the help information and exit.
+	--version, -v	Show the version's number and exit.
+
+  Example:
+
+    dropcss index.html example.html -c style.css -o style-dropped.css
+```
+
 <p align="center"><a href="#table-of-contents">
   <img src="/.documentary/section-breaks/3.svg?sanitize=true">
 </a></p>
