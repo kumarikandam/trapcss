@@ -6,6 +6,9 @@
     <prop string name="css">
       The CSS to drop selectors from.
     </prop>
+    <prop boolean name="keepAlternate" default="false">
+      Whether to keep the `@alternate` comment for Closure Stylesheets.
+    </prop>
     <fn name="shouldDrop" opt return="boolean">
       <arg string name="sel">The selector to check.</arg>
       Whether _TrapCSS_ should remove this selector.

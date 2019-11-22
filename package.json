@@ -17,7 +17,7 @@
     "lint": "eslint .",
     "doc": "NODE_DEBUG=doc doc -o README.md -n _trapcss",
     "d": "yarn-s template d2 externs",
-    "d2": "typal types/index.js compile/index.js -t types/index.xml -u",
+    "d2": "typal compile/index.js -t types/index.xml -u",
     "template": "typal compile/template.js -T compile/index.js -t types/api.xml",
     "externs": "typal types/externs.js",
     "build": "yarn-s d b doc",

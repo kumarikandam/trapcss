@@ -1,0 +1,11 @@
+// keeps the alternate comment
+div {
+  text-decoration: underline;
+  /* @alternate */
+  text-decoration: underline dotted;
+}
+/* expected */
+div{text-decoration: underline;
+  /* @alternate */
+  text-decoration: underline dotted;}
+/**/

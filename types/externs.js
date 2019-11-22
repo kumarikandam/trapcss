@@ -22,6 +22,11 @@ _trapcss.Config.prototype.html
  */
 _trapcss.Config.prototype.css
 /**
+ * Whether to keep the `@alternate` comment for Closure Stylesheets. Default `false`.
+ * @type {boolean|undefined}
+ */
+_trapcss.Config.prototype.keepAlternate
+/**
  * Whether _TrapCSS_ should remove this selector.
  * The `shouldDrop` hook is called for every CSS selector that could not be matched in the html. Return `false` to retain the selector or `true` to drop it.
  * @type {(function(string): boolean)|undefined}

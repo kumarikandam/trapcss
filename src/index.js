@@ -28,11 +28,11 @@ const drop = () => true
 
 /**
  * [fork] An exceptionally fast, thorough and tiny unused-CSS cleaner.
- * @param {_trapcss.Config} opts Options for the program.
- * @return {_trapcss.Return}
+ * @param {!_trapcss.Config} opts Options for the program.
+ * @return {!_trapcss.Return}
  */
 export default function trapcss(opts) {
-  const { html, shouldDrop = drop, css } = opts
+  const { html, shouldDrop = drop, css, keepAlternate = false } = opts
   let log, START
 
   if (LOGGING) {
@@ -45,7 +45,7 @@ export default function trapcss(opts) {
 
   LOGGING && log.push([+new Date() - START, 'HTML parsed & processed'])
 
-  const tokens = parseCSS(css)
+  const tokens = parseCSS(css, keepAlternate)
 
   LOGGING && log.push([+new Date() - START, 'CSS tokenized'])
 

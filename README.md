@@ -4,7 +4,7 @@
 
 `trapcss` removes unused selectors from CSS files to achieve maximum optimisation. Can be used as an API function or with CLI.
 
-It is is a [fork](https://github.com/leeoniya/dropcss) which is _"An exceptionally fast, thorough and tiny unused-CSS cleaner"_, but has a binary and has been optimised with Closure Compiler.
+It is a [fork](https://github.com/leeoniya/dropcss) which is _"An exceptionally fast, thorough and tiny unused-CSS cleaner"_, but has a binary and has been optimised with Closure Compiler.
 
 ```sh
 yarn add trapcss
@@ -55,11 +55,12 @@ Parses the supplied HTML and CSS and removes unused selectors. Also removes empt
 
 __<a name="type-config">`Config`</a>__: Options for the program.
 
-|    Name    |               Type                |                                                                                                 Description                                                                                                  |
-| ---------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| __html*__  | <em>string</em>                   | The input HTML.                                                                                                                                                                                              |
-| __css*__   | <em>string</em>                   | The CSS to drop selectors from.                                                                                                                                                                              |
-| shouldDrop | <em>(sel: string) => boolean</em> | Whether _TrapCSS_ should remove this selector.<br/>The `shouldDrop` hook is called for every CSS selector that could not be matched in the html. Return `false` to retain the selector or `true` to drop it. |
+|     Name      |               Type                |                                                                                                 Description                                                                                                  | Default |
+| ------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
+| __html*__     | <em>string</em>                   | The input HTML.                                                                                                                                                                                              | -       |
+| __css*__      | <em>string</em>                   | The CSS to drop selectors from.                                                                                                                                                                              | -       |
+| keepAlternate | <em>boolean</em>                  | Whether to keep the `@alternate` comment for Closure Stylesheets.                                                                                                                                            | `false` |
+| shouldDrop    | <em>(sel: string) => boolean</em> | Whether _TrapCSS_ should remove this selector.<br/>The `shouldDrop` hook is called for every CSS selector that could not be matched in the html. Return `false` to retain the selector or `true` to drop it. | -       |
 
 __<a name="type-return">`Return`</a>__: Return Type.
 

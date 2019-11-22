@@ -55,6 +55,17 @@ export const customProps = makeTestSuite('test/result/custom-props.scss', {
   },
 })
 
+export const alternate = makeTestSuite('test/result/alternate.scss', {
+  getResults() {
+    const { css } = trapcss({
+      html: '<div/>',
+      css: this.input,
+      keepAlternate: true,
+    })
+    return css
+  },
+})
+
 export default {
   'Unused @keyframes': keyframes,
   'Unused @font-face': fontface,
