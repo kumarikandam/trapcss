@@ -1,5 +1,5 @@
 import { readFileSync } from 'fs'
-import dropcss from '../../src'
+import trapcss from '../../src'
 
 const html = readFileSync('example/escaped/index.html', 'utf8')
 const css = readFileSync('example/escaped/style.css', 'utf8')
@@ -22,7 +22,7 @@ let html2 = html.replace(/class=["'][^"']*["']/gm, m =>
     .replace(/\)/gm, '__4')
 )
 
-let res = dropcss({
+let res = trapcss({
   css: css2,
   html: html2,
 })

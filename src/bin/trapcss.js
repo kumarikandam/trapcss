@@ -27,8 +27,8 @@ import { _input, _output, argsConfig, _css, _version, _help } from './args'
 if (_help) {
   const usage = usually({
     description: 'Remove unused CSS',
-    example: 'dropcss index.html example.html -c style.css -o style-dropped.css',
-    line: 'dropcss input.html[,n.html,...] -c style.css [-o output] [-hv]',
+    example: 'trapcss index.html example.html -c style.css -o style-dropped.css',
+    line: 'trapcss input.html[,n.html,...] -c style.css [-o output] [-hv]',
     usage: reduceUsage(argsConfig),
   })
   console.log(usage)

@@ -1,4 +1,4 @@
-import dropcss from '../src'
+import trapcss from '../src'
 
 // super mega-huge combined stylesheet
 let css = `
@@ -38,7 +38,7 @@ let htmlB = `
 // whitelist
 let whitelist = new Set()
 
-let resA = dropcss({
+let resA = trapcss({
   css,
   html: htmlA,
 })
@@ -46,7 +46,7 @@ let resA = dropcss({
 // accumulate retained A selectors
 resA.sels.forEach(sel => whitelist.add(sel))
 
-let resB = dropcss({
+let resB = trapcss({
   css,
   html: htmlB,
 })
@@ -55,7 +55,7 @@ let resB = dropcss({
 resB.sels.forEach(sel => whitelist.add(sel))
 
 // final purge relying only on accumulated whitelist
-let cleaned = dropcss({
+let cleaned = trapcss({
   html: '',
   css,
   shouldDrop: sel => !whitelist.has(sel),

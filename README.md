@@ -1,19 +1,19 @@
-# @lemuria/dropcss
+# trapcss
 
-[![npm version](https://badge.fury.io/js/%40lemuria%2Fdropcss.svg)](https://www.npmjs.com/package/@lemuria/dropcss)
+[![npm version](https://badge.fury.io/js/trapcss.svg)](https://www.npmjs.com/package/trapcss)
 
-`@lemuria/dropcss` is [fork](https://github.com/leeoniya/dropcss) An exceptionally fast, thorough and tiny unused-CSS cleaner.
+`trapcss` is [fork](https://github.com/leeoniya/dropcss) An exceptionally fast, thorough and tiny unused-CSS cleaner.
 
 ```sh
-yarn add @lemuria/dropcss
-npm install -D dropcss
+yarn add trapcss
+npm install -D trapcss
 ```
 
 ## Introduction
 
-DropCSS takes your HTML and CSS as input and returns only the used CSS as output. Its custom HTML and CSS parsers are highly optimized for the 99% use case and thus avoid the overhead of handling malformed markup or stylesheets, so well-formed input is required. There is minimal handling for complex escaping rules, so there will always exist cases of valid input that cannot be processed by DropCSS; for these infrequent cases, please [start a discussion](https://github.com/leeoniya/dropcss/issues). While the HTML spec allows `html`, `head`, `body` and `tbody` to be implied/omitted, DropCSS makes no such assumptions; selectors will only be retained for tags that can be parsed from provided markup.
+TrapCSS takes your HTML and CSS as input and returns only the used CSS as output. Its custom HTML and CSS parsers are highly optimized for the 99% use case and thus avoid the overhead of handling malformed markup or stylesheets, so well-formed input is required. There is minimal handling for complex escaping rules, so there will always exist cases of valid input that cannot be processed by TrapCSS; for these infrequent cases, please [start a discussion](https://github.com/leeoniya/dropcss/issues). While the HTML spec allows `html`, `head`, `body` and `tbody` to be implied/omitted, TrapCSS makes no such assumptions; selectors will only be retained for tags that can be parsed from provided markup.
 
-It's also a good idea to run your CSS through a structural optimizer like [clean-css](https://github.com/jakubpawlowicz/clean-css), [csso](https://github.com/css/csso), [cssnano](https://github.com/cssnano/cssnano) or [crass](https://github.com/mattbasta/crass) to re-group selectors, merge redundant rules, etc. It probably makes sense to do this after DropCSS, which can leave redundant blocks, e.g. `.foo, .bar { color: red; } .bar { width: 50%; }` -> `.bar { color: red; } .bar { width: 50%; }` if `.foo` is absent from your markup.
+It's also a good idea to run your CSS through a structural optimizer like [clean-css](https://github.com/jakubpawlowicz/clean-css), [csso](https://github.com/css/csso), [cssnano](https://github.com/cssnano/cssnano) or [crass](https://github.com/mattbasta/crass) to re-group selectors, merge redundant rules, etc. It probably makes sense to do this after TrapCSS, which can leave redundant blocks, e.g. `.foo, .bar { color: red; } .bar { width: 50%; }` -> `.bar { color: red; } .bar { width: 50%; }` if `.foo` is absent from your markup.
 
 More on this project's backstory & discussions: v0.1.0 alpha: [/r/javascript](https://old.reddit.com/r/javascript/comments/b3mcu8/dropcss_010_a_minimal_and_thorough_unused_css/), [Hacker News](https://news.ycombinator.com/item?id=19469080) and v1.0.0 release: [/r/javascript](https://old.reddit.com/r/javascript/comments/bb7im2/dropcss_v100_an_exceptionally_fast_thorough_and/).
 
@@ -24,7 +24,7 @@ More on this project's backstory & discussions: v0.1.0 alpha: [/r/javascript](ht
 - [Introduction](#introduction)
 - [Table Of Contents](#table-of-contents)
 - [API](#api)
-- [`dropcss(opts: Config): Return`](#dropcssopts-config-return)
+- [`trapcss(opts: Config): Return`](#trapcssopts-config-return)
   * [`Config`](#type-config)
   * [`Return`](#type-return)
 - [CLI](#cli)
@@ -39,25 +39,25 @@ More on this project's backstory & discussions: v0.1.0 alpha: [/r/javascript](ht
 The package is available by importing its default function:
 
 ```js
-import dropcss from '@lemuria/dropcss'
+import trapcss from 'trapcss'
 ```
 
 <p align="center"><a href="#table-of-contents">
   <img src="/.documentary/section-breaks/1.svg?sanitize=true">
 </a></p>
 
-## <code><ins>dropcss</ins>(</code><sub><br/>&nbsp;&nbsp;`opts: Config,`<br/></sub><code>): <i>Return</i></code>
-The shouldDrop hook is called for every CSS selector that could not be matched in the html. Return false to retain the selector or true to drop it.
+## <code><ins>trapcss</ins>(</code><sub><br/>&nbsp;&nbsp;`opts: Config,`<br/></sub><code>): <i>Return</i></code>
+Parses the supplied HTML and CSS and removes unused selectors. Also removes empty CSS rules.
 
- - <kbd><strong>opts*</strong></kbd> <em><code><a href="#type-config" title="Options for the program.">Config</a></code></em>: The options for _DropCSS_.
+ - <kbd><strong>opts*</strong></kbd> <em><code><a href="#type-config" title="Options for the program.">Config</a></code></em>: The options for _TrapCSS_.
 
 __<a name="type-config">`Config`</a>__: Options for the program.
 
-|    Name    |               Type                |                  Description                   |
-| ---------- | --------------------------------- | ---------------------------------------------- |
-| __html*__  | <em>string</em>                   | The input HTML.                                |
-| __css*__   | <em>string</em>                   | The CSS to drop selectors from.                |
-| shouldDrop | <em>(sel: string) => boolean</em> | Whether _DropCSS_ should remove this selector. |
+|    Name    |               Type                |                                                                                                 Description                                                                                                  |
+| ---------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| __html*__  | <em>string</em>                   | The input HTML.                                                                                                                                                                                              |
+| __css*__   | <em>string</em>                   | The CSS to drop selectors from.                                                                                                                                                                              |
+| shouldDrop | <em>(sel: string) => boolean</em> | Whether _TrapCSS_ should remove this selector.<br/>The `shouldDrop` hook is called for every CSS selector that could not be matched in the html. Return `false` to retain the selector or `true` to drop it. |
 
 __<a name="type-return">`Return`</a>__: Return Type.
 
@@ -68,7 +68,7 @@ __<a name="type-return">`Return`</a>__: Return Type.
 
 ```js
 /* alanode example/ */
-import dropcss from '@lemuria/dropcss'
+import trapcss from 'trapcss'
 
 let html = `
     <html>
@@ -98,7 +98,7 @@ const whitelist = /#foo|\.bar/
 
 let dropped = new Set()
 
-let cleaned = dropcss({
+let cleaned = trapcss({
   html,
   css,
   shouldDrop(sel) {
@@ -129,7 +129,7 @@ Set { '.card', 'p:hover a:first-child' }
 
 ## CLI
 
-_DropCSS_ can be used from the CLI.
+_TrapCSS_ can be used from the CLI.
 
 <table>
  <thead>
@@ -167,7 +167,7 @@ _DropCSS_ can be used from the CLI.
   </tr>
 </table>
 
-For example, having these two files, we can use `dropcss` from the command line:
+For example, having these two files, we can use `trapcss` from the command line:
 
 <table>
 <tr>
@@ -208,7 +208,7 @@ For example, having these two files, we can use `dropcss` from the command line:
 </table>
 
 ```console
-trapcss:~$ dropcss example/cli/index.html -c example/cli/style.css
+trapcss:~$ trapcss example/cli/index.html -c example/cli/style.css
 ```
 
 ```css
@@ -220,7 +220,7 @@ The help can be accessed with the `-h` command:
 ```
 Remove unused CSS
 
-  dropcss input.html[,n.html,...] -c style.css [-o output] [-hv]
+  trapcss input.html[,n.html,...] -c style.css [-o output] [-hv]
 
 	input        	The HTML files to read.
 	--css, -c    	The CSS file to drop selectors from.
@@ -231,7 +231,7 @@ Remove unused CSS
 
   Example:
 
-    dropcss index.html example.html -c style.css -o style-dropped.css
+    trapcss index.html example.html -c style.css -o style-dropped.css
 ```
 
 <p align="center"><a href="#table-of-contents">

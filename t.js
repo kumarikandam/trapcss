@@ -1,5 +1,5 @@
-import dropcss from './'
+import trapcss from './'
 
-const res = dropcss({
+const res = trapcss({
 
 })

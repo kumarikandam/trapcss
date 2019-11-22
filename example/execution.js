@@ -1,7 +1,7 @@
 import idio from '@idio/idio'
 import puppeteer from 'puppeteer'
 import rqt from 'rqt'
-import dropcss from '../src'
+import trapcss from '../src'
 
 (async () => {
   const { app, url } = await idio({
@@ -22,7 +22,7 @@ import dropcss from '../src'
       const css = await rqt(href)
       let start = +new Date()
 
-      let clean = dropcss({
+      let clean = trapcss({
         css,
         html,
       })

@@ -1,5 +1,5 @@
 /* alanode example/ */
-import dropcss from '../src'
+import trapcss from '../src'
 
 let html = `
     <html>
@@ -29,7 +29,7 @@ const whitelist = /#foo|\.bar/
 
 let dropped = new Set()
 
-let cleaned = dropcss({
+let cleaned = trapcss({
   html,
   css,
   shouldDrop(sel) {
