@@ -10,6 +10,7 @@
     "spec": "yarn t test/spec",
     "mask": "yarn t test/mask",
     "dev": "src/bin/index.js",
+    "wiki": "NODE_DEBUG=doc doc doc-wiki -W wiki -n _dropcss",
     "compile": "depack src/bin/dropcss -c -a -o compile/bin --externs types/externs.js",
     "lib": "depack src/depack -c -a -o compile/dropcss.js",
     "test-compile": "ALAMODE_ENV=test-compile yarn test",
