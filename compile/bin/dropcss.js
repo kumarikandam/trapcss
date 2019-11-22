@@ -24,9 +24,33 @@ function N(a,b){let c,d;for(;-1<b.a;){switch(a[b.a]){case "_":var e=a[--b.a];d=e
 case ">":b.a--;f=b.node.parentNode;null!=f?(b.node=f,d=N(a,b)):d=!1;break;case "+":b.a--;f=b.node.parentNode;null!=f&&0<b.node.a?(b.node=f.childNodes[b.node.a-1],d=N(a,b)):d=!1;break;case "~":if(b.a--,d=!1,c=b.node.a,f=b.node.parentNode,null!=f&&0<c)for(g=0;g<c&&!d;g++)b.node=f.childNodes[g],d=N(a,b)}if(!d)break}return d}function pa(a,b){return a.some(c=>N(b,{a:b.length-1,node:c}))};function O(a,b,c,d,e){e=e||"";for(let k=b.length-1;-1<k;k--){var g=b[k];if(!c.has(g[2])&&!0===d(e+g[2])){var f=g[0];g=g[1];a=a.slice(0,f)+""+a.slice(f+g)}}return a}const P=/([{};])\s*(--[\w-]+)\s*:\s*([^;}]+);?\s*/gm,Q=/var\(([\w-]+)\)/gm,R=/\s*,\s*/gm;function qa(a){let b={},c;for(;Q.test(a);){for(;null!==(c=P.exec(a));)b[c[2]]=c[3];a=a.replace(Q,(d,e)=>Q.test(b[e])?d:b[e])}return a}
 function ra(a,b,c){let d=[];var e=/@(?:-\w+-)?keyframes\s+([\w-]+)\s*\{/gm;let g;for(;null!==(g=e.exec(a));)d.push([g.index,g[0].length+J(a,e.lastIndex,"{","}").length+1,g[1]]);let f=new Set;for(e=/animation(?:-name)?:([^;!}]+)/gm;null!==(g=e.exec(b));)g[1].trim().split(R).forEach(k=>{let l=k.match(/^\S+/)[0];/^-?[\d.]+m?s/.test(l)&&(l=k.match(/\S+$/)[0]);f.add(l)});return O(a,d,f,c,"@keyframes ")}function S(a){return a.trim().replace(/'|"/gm,"").split(R)}
 function sa(a,b,c){var d=/@font-face[^}]+\}+/gm;let e,g=[];for(;null!==(e=d.exec(a));)g.push([e.index,e[0].length]);for(var f=/font-family:([^;!}]+)/,k,l=0;null!==(e=d.exec(b));)k=f.exec(e[0]),g[l++].push(S(k[1])[0]);let h=new Set;for(k=/@font-face[^}]+\}+|font-family:([^;!}]+)/gm;null!==(e=k.exec(b));)"@"!==e[0][0]&&S(e[1]).forEach(m=>h.add(m));d=/font:([^;!}]+)/gm;for(f=/\s*(?:['"][\w- ]+['"]|[\w-]+)\s*(?:,|$)/gm;null!==(e=d.exec(b));){for(l="";null!==(k=f.exec(e[1]));)l+=k[0];S(l).forEach(m=>h.add(m))}return O(a,
-g,h,c,"@font-face ")}function ta(a){let b=a;do a=b,b=a.replace(P,(c,d,e)=>-1!=a.indexOf("var("+e+")")?c:d);while(b!=a);return b}function ua(a,b){let c=qa(a).replace(P,(d,e)=>e);a=ra(a,c,b);a=sa(a,c,b);a=ta(a);return a.replace(/[^{}]+\{\s*\}/gm,"")};const va=/\[([\w-]+)(?:(.?=)"?([^\]]*?)"?)?\]/i,wa=/:(?:first|last|nth|only|not)\b/;function xa(a){return a.replace(/:?:[a-z-]+/gm,b=>b.startsWith("::")||!wa.test(b)?"":b).replace(/:[a-z-]+\(\)/gm,"")}const ya=()=>!0;
+g,h,c,"@font-face ")}function ta(a){let b=a;do a=b,b=a.replace(P,(c,d,e)=>-1!=a.indexOf("var("+e+")")?c:d);while(b!=a);return b}function ua(a,b){let c=qa(a).replace(P,(d,e)=>e);a=ra(a,c,b);a=sa(a,c,b);a=ta(a);return a.replace(/[^{}]+\{\s*\}/gm,"")};/*
+
+ MIT original package code dropcss
+ 2019 https://github.com/leeoniya/dropcss
+*/
+const va=/\[([\w-]+)(?:(.?=)"?([^\]]*?)"?)?\]/i,wa=/:(?:first|last|nth|only|not)\b/;function xa(a){return a.replace(/:?:[a-z-]+/gm,b=>b.startsWith("::")||!wa.test(b)?"":b).replace(/:[a-z-]+\(\)/gm,"")}const ya=()=>!0;
 function T(a){const {html:b,shouldDrop:c=ya,css:d}=a,e=da(b);a=la(d);const g={};for(var f=0;f<a.length;f++){if(3!==a[f])continue;let l=a[f+1],h=l[l.length-1];f++;for(let m=0;m<h.length;m++){let p=h[m];a:for(let r=0;r<p.length;r++){let n=p[r];var k=!1;if(""!=n){if(n in g)k=g[n];else switch(n[0]){case "#":k=n.substr(1);g[n]=k=e.i.has("[id="+k+"]");break;case ".":k=n.substr(1);g[n]=k=e.C.has(k);break;case "[":if(n.startsWith("[type="))g[n]=k=e.i.has(n);else{let t=n.match(va);g[n]=k=e.j.some(y=>L(y,t[1],
 t[3],t[2]))}break;default:g[n]=k=e.tag.has(n)}if(!k){!0===c(l[m])?l[m]=null:g[l[m]]=!0;break a}}}}}for(f=0;f<a.length;f++)3===a[f]&&(f++,a[f]=a[f].filter(l=>{if("string"==typeof l){if(l in g)return g[l];let h=xa(l);return""==h?!0:h in g?g[h]:g[h]=pa(e.j,Array.isArray(h)?h:K(h))||!0!==c(l)}return!1}));f=new Set;a=ma(a,f);a=ua(a,c);return{css:a.replace(/@[a-z-]+[^{]+\{\s*\}/gm,""),sels:f}};const x={input:{description:"The HTML files to read.",command:!0,multiple:!0},css:{description:"The CSS file to drop selectors from.",short:"c"},output:{description:"The destination where to save output.\nIf not passed, prints to stdout.",short:"o"},help:{description:"Print the help information and exit.",boolean:!0,short:"h"},version:{description:"Show the version's number and exit.",boolean:!0,short:"v"}},U=function(a={},b=process.argv){[,,...b]=b;const c=w(b);b=b.slice(c.length);let d=!c.length;
-return Object.keys(a).reduce(({f:e,...g},f)=>{if(0==e.length&&d)return{f:e,...g};const k=a[f];let l;if("string"==typeof k)({value:l,argv:e}=v(e,f,k));else try{const {short:h,boolean:m,number:p,command:r,multiple:n}=k;r&&n&&c.length?(l=c,d=!0):r&&c.length?(l=c[0],d=!0):{value:l,argv:e}=v(e,f,h,m,p)}catch(h){return{f:e,...g}}return void 0===l?{f:e,...g}:{f:e,...g,[f]:l}},{f:b})}(x),za=U.input,V=U.css,W=U.output,Aa=U.version;if(U.help){const a=q();console.log(a)}else Aa&&console.log(require("../../package.json").version);V||(console.error("Please pass CSS path"),process.exit(1));const X=z(V,"utf8");let Y=new Set;za.forEach(a=>{a=z(a,"utf8");({sels:a}=T({css:X,html:a}));a.forEach(b=>Y.add(b))});const Z=T({html:"",css:X,shouldDrop:a=>!Y.has(a)});W?(A(W,Z.css),console.error("Output written to %s",W)):console.log(Z.css);
+return Object.keys(a).reduce(({f:e,...g},f)=>{if(0==e.length&&d)return{f:e,...g};const k=a[f];let l;if("string"==typeof k)({value:l,argv:e}=v(e,f,k));else try{const {short:h,boolean:m,number:p,command:r,multiple:n}=k;r&&n&&c.length?(l=c,d=!0):r&&c.length?(l=c[0],d=!0):{value:l,argv:e}=v(e,f,h,m,p)}catch(h){return{f:e,...g}}return void 0===l?{f:e,...g}:{f:e,...g,[f]:l}},{f:b})}(x),za=U.input,V=U.css,W=U.output,Aa=U.version;/*
+
+ TrapCSS: Remove unused CSS selectors based on HTML files.
+
+ Copyright (C) 2019 Art Deco
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Affero General Public License as
+ published by the Free Software Foundation, either version 3 of the
+ License, or (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Affero General Public License for more details.
+
+ You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+if(U.help){const a=q();console.log(a)}else Aa&&console.log(require("../../package.json").version);V||(console.error("Please pass CSS path"),process.exit(1));const X=z(V,"utf8");let Y=new Set;za.forEach(a=>{a=z(a,"utf8");({sels:a}=T({css:X,html:a}));a.forEach(b=>Y.add(b))});const Z=T({html:"",css:X,shouldDrop:a=>!Y.has(a)});W?(A(W,Z.css),console.error("Output written to %s",W)):console.log(Z.css);
 
 //# sourceMappingURL=dropcss.js.map

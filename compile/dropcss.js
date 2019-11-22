@@ -16,7 +16,31 @@ function T(a,b){let c,d;for(;-1<b.a;){switch(a[b.a]){case "_":var e=a[--b.a];d=e
 case ">":b.a--;f=b.node.parentNode;null!=f?(b.node=f,d=T(a,b)):d=!1;break;case "+":b.a--;f=b.node.parentNode;null!=f&&0<b.node.a?(b.node=f.childNodes[b.node.a-1],d=T(a,b)):d=!1;break;case "~":if(b.a--,d=!1,c=b.node.a,f=b.node.parentNode,null!=f&&0<c)for(g=0;g<c&&!d;g++)b.node=f.childNodes[g],d=T(a,b)}if(!d)break}return d}function U(a,b){return a.some(c=>T(b,{a:b.length-1,node:c}))};function V(a,b,c,d,e){e=e||"";for(let h=b.length-1;-1<h;h--){var g=b[h];if(!c.has(g[2])&&!0===d(e+g[2])){var f=g[0];g=g[1];a=a.slice(0,f)+""+a.slice(f+g)}}return a}const W=/([{};])\s*(--[\w-]+)\s*:\s*([^;}]+);?\s*/gm,X=/var\(([\w-]+)\)/gm,Y=/\s*,\s*/gm;function aa(a){let b={},c;for(;X.test(a);){for(;null!==(c=W.exec(a));)b[c[2]]=c[3];a=a.replace(X,(d,e)=>X.test(b[e])?d:b[e])}return a}
 function ba(a,b,c){let d=[];var e=/@(?:-\w+-)?keyframes\s+([\w-]+)\s*\{/gm;let g;for(;null!==(g=e.exec(a));)d.push([g.index,g[0].length+K(a,e.lastIndex,"{","}").length+1,g[1]]);let f=new Set;for(e=/animation(?:-name)?:([^;!}]+)/gm;null!==(g=e.exec(b));)g[1].trim().split(Y).forEach(h=>{let l=h.match(/^\S+/)[0];/^-?[\d.]+m?s/.test(l)&&(l=h.match(/\S+$/)[0]);f.add(l)});return V(a,d,f,c,"@keyframes ")}function Z(a){return a.trim().replace(/'|"/gm,"").split(Y)}
 function ca(a,b,c){var d=/@font-face[^}]+\}+/gm;let e,g=[];for(;null!==(e=d.exec(a));)g.push([e.index,e[0].length]);for(var f=/font-family:([^;!}]+)/,h,l=0;null!==(e=d.exec(b));)h=f.exec(e[0]),g[l++].push(Z(h[1])[0]);let k=new Set;for(h=/@font-face[^}]+\}+|font-family:([^;!}]+)/gm;null!==(e=h.exec(b));)"@"!==e[0][0]&&Z(e[1]).forEach(m=>k.add(m));d=/font:([^;!}]+)/gm;for(f=/\s*(?:['"][\w- ]+['"]|[\w-]+)\s*(?:,|$)/gm;null!==(e=d.exec(b));){for(l="";null!==(h=f.exec(e[1]));)l+=h[0];Z(l).forEach(m=>k.add(m))}return V(a,
-g,k,c,"@font-face ")}function da(a){let b=a;do a=b,b=a.replace(W,(c,d,e)=>-1!=a.indexOf("var("+e+")")?c:d);while(b!=a);return b}function ea(a,b){let c=aa(a).replace(W,(d,e)=>e);a=ba(a,c,b);a=ca(a,c,b);a=da(a);return a.replace(/[^{}]+\{\s*\}/gm,"")};const fa=/\[([\w-]+)(?:(.?=)"?([^\]]*?)"?)?\]/i,ha=/:(?:first|last|nth|only|not)\b/;function ia(a){return a.replace(/:?:[a-z-]+/gm,b=>b.startsWith("::")||!ha.test(b)?"":b).replace(/:[a-z-]+\(\)/gm,"")}const ja=()=>!0;module.exports={_dropcss:function(a){const {html:b,shouldDrop:c=ja,css:d}=a,e=D(b);a=M(d);const g={};for(var f=0;f<a.length;f++){if(3!==a[f])continue;let l=a[f+1],k=l[l.length-1];f++;for(let m=0;m<k.length;m++){let H=k[m];a:for(let A=0;A<H.length;A++){let n=H[A];var h=!1;if(""!=n){if(n in g)h=g[n];else switch(n[0]){case "#":h=n.substr(1);g[n]=h=e.h.has("[id="+h+"]");break;case ".":h=n.substr(1);g[n]=h=e.B.has(h);break;case "[":if(n.startsWith("[type="))g[n]=h=e.h.has(n);else{let B=n.match(fa);g[n]=
+g,k,c,"@font-face ")}function da(a){let b=a;do a=b,b=a.replace(W,(c,d,e)=>-1!=a.indexOf("var("+e+")")?c:d);while(b!=a);return b}function ea(a,b){let c=aa(a).replace(W,(d,e)=>e);a=ba(a,c,b);a=ca(a,c,b);a=da(a);return a.replace(/[^{}]+\{\s*\}/gm,"")};/*
+
+ MIT original package code dropcss
+ 2019 https://github.com/leeoniya/dropcss
+*/
+const fa=/\[([\w-]+)(?:(.?=)"?([^\]]*?)"?)?\]/i,ha=/:(?:first|last|nth|only|not)\b/;function ia(a){return a.replace(/:?:[a-z-]+/gm,b=>b.startsWith("::")||!ha.test(b)?"":b).replace(/:[a-z-]+\(\)/gm,"")}const ja=()=>!0;/*
+
+ TrapCSS: Remove unused CSS selectors based on HTML files.
+
+ Copyright (C) 2019 Art Deco
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Affero General Public License as
+ published by the Free Software Foundation, either version 3 of the
+ License, or (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Affero General Public License for more details.
+
+ You should have received a copy of the GNU Affero General Public License
+ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+module.exports={_dropcss:function(a){const {html:b,shouldDrop:c=ja,css:d}=a,e=D(b);a=M(d);const g={};for(var f=0;f<a.length;f++){if(3!==a[f])continue;let l=a[f+1],k=l[l.length-1];f++;for(let m=0;m<k.length;m++){let H=k[m];a:for(let A=0;A<H.length;A++){let n=H[A];var h=!1;if(""!=n){if(n in g)h=g[n];else switch(n[0]){case "#":h=n.substr(1);g[n]=h=e.h.has("[id="+h+"]");break;case ".":h=n.substr(1);g[n]=h=e.B.has(h);break;case "[":if(n.startsWith("[type="))g[n]=h=e.h.has(n);else{let B=n.match(fa);g[n]=
 h=e.i.some(ka=>R(ka,B[1],B[3],B[2]))}break;default:g[n]=h=e.tag.has(n)}if(!h){!0===c(l[m])?l[m]=null:g[l[m]]=!0;break a}}}}}for(f=0;f<a.length;f++)3===a[f]&&(f++,a[f]=a[f].filter(l=>{if("string"==typeof l){if(l in g)return g[l];let k=ia(l);return""==k?!0:k in g?g[k]:g[k]=U(e.i,Array.isArray(k)?k:P(k))||!0!==c(l)}return!1}));f=new Set;a=N(a,f);a=ea(a,c);return{css:a.replace(/@[a-z-]+[^{]+\{\s*\}/gm,""),sels:f}}};
 
 //# sourceMappingURL=dropcss.js.map
