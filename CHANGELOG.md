@@ -1,5 +1,9 @@
 ## 22 November 2019
 
+### 1.1.0
+
+- [feature] Implement `keepAlternate` property.
+
 ### 1.0.0
 
 - Complete source code, tests and documentation.

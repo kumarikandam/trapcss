@@ -1,6 +1,6 @@
 {
   "name": "trapcss",
-  "version": "0.0.0-pre",
+  "version": "1.0.0",
   "description": "Removes unused selectors from CSS files to achieve maximum optimisation. Can be used as an API function or with CLI.",
   "main": "compile/index.js",
   "module": "src/index.js",
