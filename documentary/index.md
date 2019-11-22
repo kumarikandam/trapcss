@@ -2,7 +2,9 @@
 
 %NPM: trapcss%
 
-`trapcss` is [fork](https://github.com/leeoniya/dropcss) An exceptionally fast, thorough and tiny unused-CSS cleaner.
+`trapcss` removes unused selectors from CSS files to achieve maximum optimisation. Can be used as an API function or with CLI.
+
+It is is a [fork](https://github.com/leeoniya/dropcss) which is _"An exceptionally fast, thorough and tiny unused-CSS cleaner"_, but has a binary and has been optimised with Closure Compiler.
 
 ```sh
 yarn add trapcss
