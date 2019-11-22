@@ -36,4 +36,4 @@ res.css = res.css
   .replace(/__4/gm, '\\)')
 
 console.log(res.css)
-/* start end */
+/* end example */
