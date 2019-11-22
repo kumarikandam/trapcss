@@ -24,6 +24,7 @@ More on this project's backstory & discussions: v0.1.0 alpha: [/r/javascript](ht
 - [API](#api)
 - [`dropcss(opts: Config): { css: string, sels: Set }`](#dropcssopts-config--css-string-sels-set-)
   * [`Config`](#type-config)
+- [CLI](#cli)
 - [Copyright](#copyright)
 
 <p align="center"><a href="#table-of-contents">
@@ -114,6 +115,50 @@ Set { '.card', 'p:hover a:first-child' }
 
 <p align="center"><a href="#table-of-contents">
   <img src="/.documentary/section-breaks/2.svg?sanitize=true">
+</a></p>
+
+## CLI
+
+_DropCSS_ can be used from the CLI.
+
+<table>
+ <thead>
+  <tr>
+   <th>Argument</th> 
+   <th>Short</th>
+   <th>Description</th>
+  </tr>
+ </thead>
+  <tr>
+   <td>input</td>
+   <td></td>
+   <td>The HTML files to read.</td>
+  </tr>
+  <tr>
+   <td>--css</td>
+   <td>-c</td>
+   <td>The CSS file to drop selectors from.</td>
+  </tr>
+  <tr>
+   <td>--output</td>
+   <td>-o</td>
+   <td>The destination where to save output.
+    If not passed, prints to stdout.</td>
+  </tr>
+  <tr>
+   <td>--help</td>
+   <td>-h</td>
+   <td>Print the help information and exit.</td>
+  </tr>
+  <tr>
+   <td>--version</td>
+   <td>-v</td>
+   <td>Show the version's number and exit.</td>
+  </tr>
+</table>
+
+<p align="center"><a href="#table-of-contents">
+  <img src="/.documentary/section-breaks/3.svg?sanitize=true">
 </a></p>
 
 ## Copyright

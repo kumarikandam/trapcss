@@ -1,15 +1,13 @@
 import { join } from 'path'
-import { debuglog } from 'util'
-
-const LOG = debuglog('@lemuria/dropcss')
+import { readFileSync } from 'fs'
 
 /**
  * A testing context for the package.
  */
 export default class Context {
-  async _init() {
-    LOG('init context')
-  }
+  // async _init() {
+  //   LOG('init context')
+  // }
   /**
    * Example method.
    */
@@ -26,7 +24,20 @@ export default class Context {
     const f = file.raw[0]
     return join('test/fixture', f)
   }
-  async _destroy() {
-    LOG('destroy context')
+  /**
+   * Path to bootstrap.
+   */
+  get bootstrap() {
+    return this.fixture`bootstrap.min.css`
   }
+  /**
+   * Read the file from the fs.
+   * @param {string} path The path to read.
+   */
+  readFile(path) {
+    return readFileSync(path, 'utf8')
+  }
+  // async _destroy() {
+  //   LOG('destroy context')
+  // }
 }

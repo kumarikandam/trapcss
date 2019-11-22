@@ -43,7 +43,7 @@ function tokenize(html) {
 
       let attrMap
 
-      while ((m2 = RE.ATTR.exec(html) !== null)) {
+      while ((m2 = RE.ATTR.exec(html)) !== null) {
         syncPos(RE.ATTR)
         attrMap = attrMap || new Map()
         attrMap.set(m2[1], (m2[2] || m2[3] || m2[4] || '').trim())

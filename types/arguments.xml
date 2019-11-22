@@ -1,0 +1,18 @@
+<arguments>
+  <arg command multiple name="input">
+    The HTML files to read.
+  </arg>
+  <arg name="css" short="c">
+    The CSS file to drop selectors from.
+  </arg>
+  <arg name="output" short="o">
+    The destination where to save output.
+    If not passed, prints to stdout.
+  </arg>
+  <arg boolean name="help" short="h">
+    Print the help information and exit.
+  </arg>
+  <arg boolean name="version" short="v">
+    Show the version's number and exit.
+  </arg>
+</arguments>

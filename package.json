@@ -9,6 +9,7 @@
     "test": "yarn t test/spec test/mask",
     "spec": "yarn t test/spec",
     "mask": "yarn t test/mask",
+    "dev": "src/bin/index.js",
     "test-build": "ALAMODE_ENV=test-build yarn test",
     "lint": "eslint .",
     "doc": "NODE_DEBUG=doc doc -o README.md -n _dropcss",
@@ -17,7 +18,8 @@
     "d1": "typal types/index.js src -c -t types/index.xml",
     "externs": "typal types/externs.js",
     "build": "yarn-s d b doc",
-    "e": "alanode"
+    "e": "alanode",
+    "args": "argufy types/arguments.xml -o src/bin/args.js"
   },
   "files": [
     "build",
@@ -41,8 +43,10 @@
   "homepage": "https://github.com/kumarikandam/dropcss#readme",
   "devDependencies": {
     "alamode": "^3.2.0",
+    "argufy": "^1.7.1",
     "documentary": "^1.34.1",
     "eslint-config-artdeco": "1.0.1",
+    "usually": "^1.2.0",
     "yarn-s": "1.1.0",
     "zoroaster": "^4.1.2"
   }
